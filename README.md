@@ -30,9 +30,11 @@ $e.on('some str', -> $data {
   qw<do something with your $data here>;
 });
 
-$e.emit('some str', @(1 .. 5)); #runs the some str listener
+#runs the some str listener
+$e.emit('some str', @(1 .. 5)); 
 
-$e.emit('Some regex', { conn => IO::Socket::INET }); #runs the regex because it matches the regex;
+#runs the regex because it matches the regex;
+$e.emit('Some regex', { conn => IO::Socket::INET }); 
 
 $e.emit({ 'some flag' => 5 }, { });
 ```
@@ -44,7 +46,27 @@ $e.emit({ 'some flag' => 5 }, { });
 ```perl6
 use Event::Emitter;
 
-my Event::Emitter $e .= new;
+my Event::Emitter $e .= new(:threaded);
 ```
 
+##Rolling your own Event::Emitter
 
+Want to make your own receiver/emitter?  Here's a template
+
+```perl6
+use Event::Emitter::Role::Handler;
+
+class My::Own::Emitter;
+
+method on($event, $data) {
+  qw<do your thing>;
+}
+
+method emit($event, $data?) {
+  qw<do your thing here>;
+}
+```
+
+#License
+
+Free for all.
