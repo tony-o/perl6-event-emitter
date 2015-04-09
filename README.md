@@ -2,7 +2,13 @@
 
 An extendable JS like event emitter.  Can use supplies or channels and is basically just some syntax sugar on already implemented Perl6 features.
 
-##syntax
+##Syntax
+
+Out of the box functionality
+
+###Single thread
+
+```Event::Emitter``` uses a ```Supply``` in the back end
 
 ```perl6
 use Event::Emitter;
@@ -30,4 +36,15 @@ $e.emit('Some regex', { conn => IO::Socket::INET }); #runs the regex because it 
 
 $e.emit({ 'some flag' => 5 }, { });
 ```
+
+###Thread
+
+```Event::Emitter``` uses a ```Channel``` in the back end
+
+```perl6
+use Event::Emitter;
+
+my Event::Emitter $e .= new;
+```
+
 
