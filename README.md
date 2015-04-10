@@ -21,6 +21,7 @@ $e.on(/^^ "Some regex"/, -> $data {
 });
 
 #your own callables to match events
+my $event = { 'some flag' => 3, 'some other flag' => 5 };
 $e.on({ $event<some flag> // Nil eq $*STATE }, -> $data {
   qw<do something with your $data here>;
 });
@@ -53,10 +54,12 @@ my Event::Emitter $e .= new(:threaded);
 
 Want to make your own receiver/emitter?  Here's a template
 
+###Your new .pm6 file
+
 ```perl6
 use Event::Emitter::Role::Handler;
 
-class My::Own::Emitter;
+class My::Own::Emitter does Event::Emitter::Role::Handler;
 
 method on($event, $data) {
   qw<do your thing>;
@@ -65,6 +68,15 @@ method on($event, $data) {
 method emit($event, $data?) {
   qw<do your thing here>;
 }
+```
+
+###Later in your .pl6
+
+```perl6
+use Event::Emitter;
+
+
+my $e = Event::Emitter.new(:class<My::Own::Emitter>);
 ```
 
 #License
