@@ -7,8 +7,8 @@
     "provides"    : {
       "Event::Emitter": "lib/Event/Emitter.pm6",
       "Event::Emitter::Role::Handler": "lib/Event/Emitter/Role/Handler.pm6",
-      "Event::Emitter::Supply", "lib/Event/Emitter/Supply.pm6",
-      "Event::Emitter::Channel", "lib/Event/Emitter/Channel.pm6"
+      "Event::Emitter::Supply": "lib/Event/Emitter/Supply.pm6",
+      "Event::Emitter::Channel": "lib/Event/Emitter/Channel.pm6"
     },
     "authors" : [
         "Tony O'Dell"       
