@@ -6,6 +6,8 @@ use lib "lib";
 
 use Test;
 
+plan 14;
+
 use Event::Emitter::Role::Typed;
 
 class Foo does Event::Emitter::Role::Typed {
@@ -46,13 +48,10 @@ ok($obj = Bar.new, "create an object that consumes the role (threaded)");
 ok($obj.^does(Event::Emitter::Role::Typed), "and it does the role (threaded)");
 
 
-ok($tap = $obj.on(MyEvent, { pass("event got handled (threaded)"); $test_handled = True  }), "set handler on 'test' event");
+ok($tap = $obj.on(MyEvent, { pass("event got handled (threaded)"); }), "set handler on 'test' event");
 
-$obj.on(BadEvent, { fail("different named event didn't get handled (threaded)"); $boom_handled = True });
+$obj.on(BadEvent, { fail("different named event didn't get handled (threaded)"); });
 
 lives_ok { $obj.emit(MyEvent.new) }, "emit with MyEvent works (threaded)";
 
 
-dies_ok({ $obj.on(MyEvent,"bar") }, "dies with a non-code argument (threaded)");
-dies_ok({ $obj.on("foo",{ say $_ }) }, "dies with a non-type argument (threaded)");
-done();

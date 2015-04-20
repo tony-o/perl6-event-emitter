@@ -6,6 +6,8 @@ use lib "lib";
 
 use Test;
 
+plan 14;
+
 use Event::Emitter::Role::Node;
 
 class Foo does Event::Emitter::Role::Node {
@@ -46,4 +48,3 @@ lives_ok { $obj.emit('test', "yahaha") }, "emit to 'test' works (threaded)";
 
 dies_ok({ $obj.on("foo","bar") }, "dies with a non-code argument (threaded)");
 
-done();
