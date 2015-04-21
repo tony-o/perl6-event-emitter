@@ -16,8 +16,8 @@
         "Tony O'Dell"       
     ],
     "support" : {
-        "source"  : "git@github.com:tony-o/perl6-event-emitter.git",
+        "source"  : "git://github.com/tony-o/perl6-event-emitter.git",
         "bugtracker"  : "https://github.com/tony-o/perl6-event-emitter/issues"
     },
-    "source-url"  : "git@github.com:tony-o/perl6-event-emitter.git"
+    "source-url"  : "git://github.com/tony-o/perl6-event-emitter.git"
 }
