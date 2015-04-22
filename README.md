@@ -1,6 +1,6 @@
 #Event::Emitter
 
-An extendable JS like event emitter.  Can use supplies or channels and is basically just some syntax sugar on already implemented Perl6 features.
+An extendable JS like event emitter but way more fun.  Can use supplies or channels and is basically just some syntax sugar on already implemented Perl6 features.
 
 ##Syntax
 
