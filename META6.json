@@ -15,7 +15,7 @@
     "authors" : [
         "Tony O'Dell"       
     ],
-    "auth": "github:tony-o",
+    "auth": "zef:tony-o",
 
     "support" : {
         "source"  : "git://github.com/tony-o/perl6-event-emitter.git",
